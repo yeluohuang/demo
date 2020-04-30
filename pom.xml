@@ -22,13 +22,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-        <!-- 剔除系统自带的logback日志：控制台打印日志 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- aop 切面依赖包 -->
+        <!-- aop 切面依赖 -->
         <dependency>
                <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
@@ -47,13 +46,11 @@
         </dependency>
 
         <!-- swagger 依赖包 -->
-        <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.5.0</version>
         </dependency>
-        <!-- swagger-ui -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
@@ -98,6 +95,7 @@
             <artifactId>druid</artifactId>
             <version>1.1.6</version>
         </dependency>
+
         <!--测试的起步依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -117,6 +115,13 @@
             <artifactId>spring-test</artifactId>
             <version>5.1.10.RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- 权限管理：shiro依赖 -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.0</version>
         </dependency>
 
         <!--  fastjson 依赖 -->

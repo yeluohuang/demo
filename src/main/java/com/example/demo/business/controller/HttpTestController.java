@@ -1,6 +1,5 @@
 package com.example.demo.business.controller;
 
-import com.example.demo.annotation.declare.Log;
 import com.example.demo.business.pojo.Test;
 import com.example.demo.business.pojo.TestResponse;
 import org.slf4j.Logger;
@@ -27,7 +26,6 @@ public class HttpTestController {
      * @param request 请求体
      * @param response 返回体
      */
-    @Log("打印请头信息")
     @PostMapping("/headers_print")
     public TestResponse getHeader(HttpServletRequest request, HttpServletResponse response) {
         Enumeration<String> headers = request.getHeaderNames();
