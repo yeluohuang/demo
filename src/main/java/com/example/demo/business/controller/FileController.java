@@ -25,10 +25,10 @@ public class FileController {
     private FileService fileService;
 
     /**
-     * 上传文件
+     * 上传单个文件
      * @param file  文件
      * @return
-     * @throws Exception
+             * @throws Exception
      */
     @PostMapping(value="/file_upload")
     public TestResponse upLoadPicture(@RequestParam("file") MultipartFile file) throws Exception{
@@ -37,7 +37,7 @@ public class FileController {
     }
 
     /**
-     * 下载文件
+     * 下载单个文件
      * @param model 请求参数
      * @param result 参数校验结果
      * @param response
@@ -45,8 +45,7 @@ public class FileController {
      * @throws Exception
      */
     @PostMapping(value = "/file_download")
-    public TestResponse downloadPicture(@RequestBody @Validated(value = FileRequestModel.EmptyDefault.class) FileRequestModel model,
-                                        BindingResult result,HttpServletResponse response) throws Exception{
+    public TestResponse downloadPicture(@RequestBody @Validated(value = FileRequestModel.EmptyDefault.class) FileRequestModel model, BindingResult result,HttpServletResponse response) throws Exception{
         if(result.hasErrors()){
             return TestResponse.error(result.getFieldError().getDefaultMessage());
         }

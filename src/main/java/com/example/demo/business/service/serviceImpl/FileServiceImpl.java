@@ -5,6 +5,7 @@ import com.example.demo.business.service.FileService;
 import com.example.demo.exception.ExceptionEnum;
 import com.example.demo.exception.TestException;
 import com.example.demo.util.PathUtil;
+import com.example.demo.util.UUIDUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class FileServiceImpl implements FileService {
     private static final Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
     @Override
     public String uploadFile(MultipartFile file) throws Exception {
-        String fileName= System.currentTimeMillis()+file.getOriginalFilename();
+        String fileName= UUIDUtil.getUUID() +file.getOriginalFilename();
         logger.info("当前文件名"+fileName);
         String filePath = "";
         // 判断文件的类型
