@@ -1,6 +1,10 @@
 package com.example.demo.config.shiro;
 
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -34,8 +38,14 @@ public class UserFilter extends org.apache.shiro.web.filter.authc.UserFilter {
 
     // 跨域请求
     private void setHeader(HttpServletRequest request,HttpServletResponse response){
-        response.setHeader("Access-control-Allow-Origin",request.getHeader("Origin")); // 请求的域名
-        response.setHeader("Access-control-Allow-Method",request.getMethod()); // 非简单请求（put,delete,正式通信前发送一次请求），需要返回该参数（浏览器需要用到的的请求类型）
-        response.setHeader("Access-control-Allow-Credentials","true"); // 允许发送cookie
+            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+            CorsConfiguration config = new CorsConfiguration();
+            config.setAllowCredentials(true);	config.addAllowedOrigin("http://localhost:9000");
+            config.addAllowedOrigin("null");
+            config.addAllowedHeader("*");
+            config.addAllowedMethod("*");
+            source.registerCorsConfiguration("/**", config); // CORS 配置对所有接口都有效
+            FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+            bean.setOrder(0);
     }
 }

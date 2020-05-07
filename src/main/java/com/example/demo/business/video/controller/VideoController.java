@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author zhushj3
  * @date 2020/05/07
  */
+
 @RequestMapping("/video")
 @RestController
 public class VideoController {
@@ -89,7 +90,7 @@ public class VideoController {
      * @param result
      * @return
      */
-    @PostMapping(value = "/videos_update")
+    @PostMapping(value = "/video_update")
     public TestResponse updateTags(@RequestBody @Validated(value = VideoUpdateModel.IdNotNull.class) VideoUpdateModel model,
                                    BindingResult result){
         if (result.hasErrors()){
