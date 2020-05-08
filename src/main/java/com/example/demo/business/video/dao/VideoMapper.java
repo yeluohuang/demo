@@ -5,9 +5,8 @@ import com.example.demo.business.video.pojo.VideoExample;
 import java.util.List;
 
 import com.example.demo.business.video.pojo.VideoQueryModel;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface VideoMapper {
     int countByExample(VideoExample example);
 
@@ -31,6 +30,7 @@ public interface VideoMapper {
 
     int updateByPrimaryKey(Video record);
 
-    List<Video> listVideosByOr(VideoQueryModel model); // 按或分页查询视频信息
-    List<Video> listVideosByAnd(VideoQueryModel model); // 按与分页查询视频信息
+    List<Video> listVideosByOr(VideoQueryModel model);
+    List<Video> listVideosByAnd(VideoQueryModel model);
+
 }

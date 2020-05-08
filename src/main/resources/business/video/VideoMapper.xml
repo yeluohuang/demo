@@ -287,26 +287,27 @@
       author = #{author,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="listVideosByAnd" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultMap="BaseResultMap">
-    select * from video
+  <select id="listVideosByAnd" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultType="com.example.demo.business.video.pojo.Video">
+    select * fromvideo
     <where>
       <if test="title!=null">
-        nd title like CONCAT('%',#{title},'%')
+        ndtitle like CONCAT('%',#{title},'%')
       </if>
       <if test="author!=null">
         and author like CONCAT('%',#{author},'%')
       </if>
       <if test="des!=null">
-        and des like CONCAT('%',#{des},'%')
+        and des likeCONCAT('%',#{des},'%')
       </if>
       <if test="tags!=null">
-        and tags like CONCAT('%',#{tags},'%')
+        and tags likeCONCAT('%',#{tags},'%')
       </if>
     </where>
-    order by create_time desc limit #{start},#{num}
+    orderbycreate_timedesclimit#{start},#{num}
   </select>
-  <select id="listVideosByOr" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultMap="BaseResultMap">
-    select * from video where title like CONCAT('%',#{content},'%') or author like CONCAT('%',#{content},'%') or des like CONCAT('%',#{content},'%')
-    or  tags like CONCAT('%',#{content},'%') order by create_time desc  limit #{start},#{num}
+  <select id="listVideosByOr" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultType="com.example.demo.business.video.pojo.Video">
+    select * from video where title like CONCAT('%',#{content},'%') or author like CONCAT('%',#{content},'%')
+                           or des like CONCAT('%',#{content},'%')
+                           or tags like CONCAT('%',#{content},'%') order by create_time desc limit #{start},#{num}
   </select>
 </mapper>
