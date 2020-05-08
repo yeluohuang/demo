@@ -1,7 +1,7 @@
-package com.example.demo.business.service.serviceImpl;
+package com.example.demo.business.test.service.serviceImpl;
 
-import com.example.demo.business.pojo.FileRequestModel;
-import com.example.demo.business.service.FileService;
+import com.example.demo.business.test.pojo.FileRequestModel;
+import com.example.demo.business.test.service.FileService;
 import com.example.demo.exception.ExceptionEnum;
 import com.example.demo.exception.TestException;
 import com.example.demo.util.PathUtil;
@@ -10,8 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.OutputStream;
 
 /**
  * 文件业务实现类

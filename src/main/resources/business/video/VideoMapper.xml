@@ -287,8 +287,9 @@
       author = #{author,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="listVideosByAnd" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultType="com.example.demo.business.video.pojo.Video">
-    select * fromvideo
+
+  <select id="listVideosByAnd" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultMap="BaseResultMap">
+    select * from video
     <where>
       <if test="title!=null">
         ndtitle like CONCAT('%',#{title},'%')
@@ -297,15 +298,15 @@
         and author like CONCAT('%',#{author},'%')
       </if>
       <if test="des!=null">
-        and des likeCONCAT('%',#{des},'%')
+        and des like CONCAT('%',#{des},'%')
       </if>
       <if test="tags!=null">
-        and tags likeCONCAT('%',#{tags},'%')
+        and tags like CONCAT('%',#{tags},'%')
       </if>
     </where>
     orderbycreate_timedesclimit#{start},#{num}
   </select>
-  <select id="listVideosByOr" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultType="com.example.demo.business.video.pojo.Video">
+  <select id="listVideosByOr" parameterType="com.example.demo.business.video.pojo.VideoQueryModel" resultMap="BaseResultMap">
     select * from video where title like CONCAT('%',#{content},'%') or author like CONCAT('%',#{content},'%')
                            or des like CONCAT('%',#{content},'%')
                            or tags like CONCAT('%',#{content},'%') order by create_time desc limit #{start},#{num}

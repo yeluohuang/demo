@@ -1,7 +1,6 @@
-package com.example.demo.business.pojo;
+package com.example.demo.business.test.pojo;
 
 import com.example.demo.exception.BaseException;
-import com.example.demo.exception.ExceptionEnum;
 
 /**
  * 测试类返回体包装对象,用于封装接口返回的数据

@@ -1,7 +1,5 @@
 package com.example.demo.exception;
 
-import org.omg.CORBA.UNKNOWN;
-
 /**
  * 自定义异常枚举类，罗列接口可能出现的异常信息
  * @author zhushj3
@@ -10,13 +8,19 @@ import org.omg.CORBA.UNKNOWN;
 public enum ExceptionEnum implements BaseException {
     // 成功类
     SUCCESS("200","处理成功"),
-    // 业务类：暂无
+
+    // 登录相关
     LOGIN_FAIL("300","登录失败，用户名或密码错误"),
     LOGIN_NO("301","用户未登录"),
     PERMISSION_DENIED("400","无权限操作"),
+
+    // 文件相关
     FILE_NOTFOUND("400","文件不存在"),
+    FILE_SIZE_EXCEED("401","文件过大"),
+
     // 参数类
     EMPTY("999","请求参数为空或包含非法字符"),
+
     // 未知类
     UNKNOWN("999","服务器未知异常")
    ;

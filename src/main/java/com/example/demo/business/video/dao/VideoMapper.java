@@ -30,7 +30,6 @@ public interface VideoMapper {
 
     int updateByPrimaryKey(Video record);
 
-    List<Video> listVideosByOr(VideoQueryModel model);
-    List<Video> listVideosByAnd(VideoQueryModel model);
-
+    List<Video> listVideosByOr(VideoQueryModel model);  // 模糊查询，基于标题、作者、标签、内容
+    List<Video> listVideosByAnd(VideoQueryModel model); // 筛选查询，条件同上
 }

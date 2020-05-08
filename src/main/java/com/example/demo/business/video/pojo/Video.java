@@ -102,20 +102,4 @@ public class Video {
     public void setAuthor(String author) {
         this.author = author == null ? null : author.trim();
     }
-
-    @Override
-    public String toString() {
-        return "Video{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", des='" + des + '\'' +
-                ", duration=" + duration +
-                ", tags='" + tags + '\'' +
-                ", createTime=" + createTime +
-                ", mimeType='" + mimeType + '\'' +
-                ", url='" + url + '\'' +
-                ", picUrl='" + picUrl + '\'' +
-                ", author='" + author + '\'' +
-                '}';
-    }
 }

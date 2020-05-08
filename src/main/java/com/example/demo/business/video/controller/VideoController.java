@@ -1,6 +1,6 @@
 package com.example.demo.business.video.controller;
 
-import com.example.demo.business.pojo.TestResponse;
+import com.example.demo.business.test.pojo.TestResponse;
 import com.example.demo.business.video.pojo.Video;
 import com.example.demo.business.video.pojo.VideoQueryModel;
 import com.example.demo.business.video.pojo.VideoUpdateModel;
@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author zhushj3
  * @date 2020/05/07
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/video")
 @RestController
 public class VideoController {

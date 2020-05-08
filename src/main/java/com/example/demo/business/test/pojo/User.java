@@ -1,4 +1,4 @@
-package com.example.demo.business.pojo;
+package com.example.demo.business.test.pojo;
 
 import org.apache.shiro.session.Session;
 

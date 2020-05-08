@@ -32,7 +32,7 @@ public class UserFilter extends org.apache.shiro.web.filter.authc.UserFilter {
         } else if(request1.getMethod().equals(RequestMethod.GET.name())){
             isAccess = true;
         }
-       // setHeader(request1,response1);
+        setHeader(request1,response1);
         return isAccess;
     }
 
@@ -40,11 +40,12 @@ public class UserFilter extends org.apache.shiro.web.filter.authc.UserFilter {
     private void setHeader(HttpServletRequest request,HttpServletResponse response){
             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
             CorsConfiguration config = new CorsConfiguration();
-            config.setAllowCredentials(true);	config.addAllowedOrigin("http://localhost:8089");
+            config.setAllowCredentials(true); // 允许发送cookie
+            config.addAllowedOrigin("*"); // 简单请求、非简单请求的跨域设置；表示允许指定规则的url访问
             config.addAllowedOrigin("null");
-            config.addAllowedHeader("*");
-            config.addAllowedMethod("*");
-            source.registerCorsConfiguration("/**", config); // CORS 配置对所有接口都有效
+            config.addAllowedHeader("*"); // 非简单请求跨域处理
+            config.addAllowedMethod("*"); // 非简单请求设置，允许访问哪类请求方式（POST、GET...）
+            source.registerCorsConfiguration("/**", config); // 非简单请求设置，允许访问哪些接口
             FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
             bean.setOrder(0);
     }

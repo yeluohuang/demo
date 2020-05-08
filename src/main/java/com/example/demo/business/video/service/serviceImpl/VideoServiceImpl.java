@@ -1,6 +1,6 @@
 package com.example.demo.business.video.service.serviceImpl;
 
-import com.example.demo.business.service.FileService;
+import com.example.demo.business.test.service.FileService;
 import com.example.demo.business.video.dao.VideoMapper;
 import com.example.demo.business.video.pojo.Video;
 import com.example.demo.business.video.pojo.VideoMeta;
@@ -40,11 +40,20 @@ public class VideoServiceImpl implements VideoService {
         String fileName = fileService.uploadFile(file);
         // 解析并获取视频元数据信息、缩略图等
         File localFile = new File(PathUtil.getFilePath()+File.separator+fileName);
-        VideoMeta  meta = VideoUtils.getVideoMeta(localFile,1);
+        VideoMeta  meta = VideoUtils.getVideoMeta(localFile,10);
         // 保存缩略图至本地
         ByteArrayOutputStream outputStream = (ByteArrayOutputStream) meta.getThumbnailImage();
         String thumbName = UUIDUtil.getUUID()+".jpg";
-        FileOutputStream fileOutputStream =new FileOutputStream(new File(PathUtil.getImgPath()+File.separator+thumbName));
+        String imgPath = PathUtil.getImgPath()+File.separator+thumbName;
+        File temp = new File(imgPath);
+        if(!temp.exists()){
+            if(!temp.getParentFile().exists()){
+                temp.getParentFile().mkdirs();
+            }
+            // 写入文件
+            temp.createNewFile();
+        }
+        FileOutputStream fileOutputStream =new FileOutputStream(temp);
         fileOutputStream.write(outputStream.toByteArray());
         // 记录视频和缩略图的名称
         video.setMimeType(meta.getFileType());

@@ -1,8 +1,7 @@
-package com.example.demo.business.controller;
+package com.example.demo.business.test.controller;
 
-import com.example.demo.business.pojo.TestResponse;
-import com.example.demo.business.pojo.User;
-import com.example.demo.config.session.SessionDao;
+import com.example.demo.business.test.pojo.TestResponse;
+import com.example.demo.business.test.pojo.User;
 import com.example.demo.exception.ExceptionEnum;
 import com.example.demo.exception.TestException;
 import org.apache.shiro.SecurityUtils;
@@ -10,7 +9,6 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

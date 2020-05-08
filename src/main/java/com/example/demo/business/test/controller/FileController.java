@@ -1,8 +1,8 @@
-package com.example.demo.business.controller;
+package com.example.demo.business.test.controller;
 
-import com.example.demo.business.pojo.FileRequestModel;
-import com.example.demo.business.pojo.TestResponse;
-import com.example.demo.business.service.FileService;
+import com.example.demo.business.test.pojo.FileRequestModel;
+import com.example.demo.business.test.pojo.TestResponse;
+import com.example.demo.business.test.service.FileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -45,7 +46,7 @@ public class FileController {
      * @throws Exception
      */
     @PostMapping(value = "/file_download")
-    public TestResponse downloadPicture(@RequestBody @Validated(value = FileRequestModel.EmptyDefault.class) FileRequestModel model, BindingResult result,HttpServletResponse response) throws Exception{
+    public TestResponse downloadPicture(@RequestBody @Validated(value = FileRequestModel.EmptyDefault.class) FileRequestModel model, BindingResult result, HttpServletResponse response) throws Exception{
         if(result.hasErrors()){
             return TestResponse.error(result.getFieldError().getDefaultMessage());
         }

@@ -1,7 +1,7 @@
-package com.example.demo.business.controller;
+package com.example.demo.business.test.controller;
 
-import com.example.demo.business.pojo.Test;
-import com.example.demo.business.pojo.TestResponse;
+import com.example.demo.business.test.pojo.Test;
+import com.example.demo.business.test.pojo.TestResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
