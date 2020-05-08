@@ -89,7 +89,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from video
     where id = #{id,jdbcType=INTEGER}
@@ -105,13 +105,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.demo.business.video.pojo.Video" >
-    insert into video (id, title, des, 
-      duration, tags, create_time, 
-      mime_type, url, pic_url, 
+    insert into video (id, title, des,
+      duration, tags, create_time,
+      mime_type, url, pic_url,
       author)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
-      #{duration,jdbcType=INTEGER}, #{tags,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{mimeType,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR},
+      #{duration,jdbcType=INTEGER}, #{tags,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{mimeType,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR},
       #{author,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.business.video.pojo.Video" >

@@ -32,7 +32,7 @@ public class UserFilter extends org.apache.shiro.web.filter.authc.UserFilter {
         } else if(request1.getMethod().equals(RequestMethod.GET.name())){
             isAccess = true;
         }
-        setHeader(request1,response1);
+       // setHeader(request1,response1);
         return isAccess;
     }
 
@@ -40,7 +40,7 @@ public class UserFilter extends org.apache.shiro.web.filter.authc.UserFilter {
     private void setHeader(HttpServletRequest request,HttpServletResponse response){
             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
             CorsConfiguration config = new CorsConfiguration();
-            config.setAllowCredentials(true);	config.addAllowedOrigin("http://localhost:9000");
+            config.setAllowCredentials(true);	config.addAllowedOrigin("http://localhost:8089");
             config.addAllowedOrigin("null");
             config.addAllowedHeader("*");
             config.addAllowedMethod("*");

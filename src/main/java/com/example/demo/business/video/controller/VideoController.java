@@ -22,13 +22,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author zhushj3
  * @date 2020/05/07
  */
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/video")
 @RestController
 public class VideoController {
+    @Autowired private VideoService videoService;
     private static Logger logger = LoggerFactory.getLogger(VideoController.class);
-    @Autowired
-    private VideoService videoService;
 
     /**
      * 上传视频文件，同时也会截取视频的缩略图进行保存
