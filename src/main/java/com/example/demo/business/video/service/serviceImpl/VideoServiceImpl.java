@@ -50,7 +50,6 @@ public class VideoServiceImpl implements VideoService {
             if(!temp.getParentFile().exists()){
                 temp.getParentFile().mkdirs();
             }
-            // 写入文件
             temp.createNewFile();
         }
         FileOutputStream fileOutputStream =new FileOutputStream(temp);
@@ -77,7 +76,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     /**
-     * 播放/下载视频
+     * 播放/下载视频：结合请求头中的range参数，利用RandomAccessFile类对视频实现分片读取
      * @param request
      * @param response
      */
@@ -94,7 +93,7 @@ public class VideoServiceImpl implements VideoService {
             filePath = PathUtil.getFilePath()+filePath+File.separator+filename;
         }
         logger.info("当前请求的资源地址为："+filePath);
-        // 开始下载
+        // 采用RandAccessFile类来读取文件内指定位置的内容，从而实现每次请求一部分数据的功能
         File file1 =new File(filePath);
         RandomAccessFile randomFile = new RandomAccessFile(file1, "r");//只读模式
         long contentLength = randomFile.length();
