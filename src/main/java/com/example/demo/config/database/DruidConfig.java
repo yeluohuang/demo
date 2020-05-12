@@ -24,8 +24,6 @@ import java.sql.SQLException;
 public class DruidConfig {
     private static final Logger logger = LoggerFactory.getLogger(DruidConfig.class);
 
-    private static final String DB_PREFIX = "spring.datasource.druid";
-
     @Bean
     public ServletRegistrationBean druidServlet() {
         logger.info("init Druid Servlet Configuration ");
