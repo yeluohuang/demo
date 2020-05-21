@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2020/04/29
  */
 @RestController
-@RequestMapping("/file")
+@RequestMapping("/file_download")
 public class FileController {
     private static final Logger logger = LoggerFactory.getLogger(FileController.class);
     @Autowired

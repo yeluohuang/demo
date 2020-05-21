@@ -6,8 +6,24 @@ import java.util.Date;
 public class DateUtils {
     private static String format = "yyyy-MM-dd HH:mm:ss";
 
-    public static String format(Date date) {
+    /**
+     * 标准化日期输出：yyyy-MM-dd HH:mm:ss
+     * @param date 日期
+     * @return  字符串输出
+     */
+    public static String formatToStandard(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(date);
+    }
+
+    /**
+     * 对将指定日期格式化为指定的格式
+     * @param date 日期
+     * @param string 日期格式
+     * @return 字符串类型
+     */
+    public static String formatByFormat(Date date,String string) {
+        SimpleDateFormat sdf = new SimpleDateFormat(string);
         return sdf.format(date);
     }
 }

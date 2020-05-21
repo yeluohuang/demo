@@ -1,4 +1,4 @@
-package com.example.demo.aspect;
+package com.example.demo.aop;
 
 import com.example.demo.exception.BaseException;
 import com.example.demo.exception.TestException;
