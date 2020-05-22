@@ -16,7 +16,5 @@ public class MyApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("========== 我的springboot框架启动成功 ==========");
-        String name  =  ManagementFactory.getRuntimeMXBean().getName();
-        String pid = name.split("@")[0];
     }
 }

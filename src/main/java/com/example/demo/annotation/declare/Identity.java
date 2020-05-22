@@ -15,7 +15,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 身份证号校验注解：
  * 只能用基本类型byte,short,char,int,long,float,double,boolean八种基本数据类型和
  * String、Enum、Class、annotations等数据类型,以及这一些类型的数组
- *
  * @author zhushj3
  * @date 2020/04/29
  */
