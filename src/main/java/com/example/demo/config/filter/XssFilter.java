@@ -27,6 +27,7 @@ public class XssFilter implements Filter{
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         logger.info("XssFilter 开始过滤");
+        // 对入参和出参进行过滤或者包装
         filterChain.doFilter(new XssHttpServletRequestWrapper((HttpServletRequest)servletRequest), servletResponse);
     }
 

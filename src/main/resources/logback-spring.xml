@@ -140,14 +140,15 @@
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
-    
-    <logger name="test" additivity="false" level="DEBUG">
-        <appender-ref ref="STDOUT"/>
+
+    <!-- name 指定约束的包或者类，activity表示是否向上级传递日志信息-->
+<!--    <logger name="test" additivity="false" level="DEBUG">-->
+<!--        <appender-ref ref="STDOUT"/>-->
 <!--        <appender-ref ref="DEBUG_LOG" />-->
-        <appender-ref ref="INFO_LOG" />
+<!--        <appender-ref ref="INFO_LOG" />-->
 <!--        <appender-ref ref="WARN_LOG" />-->
-        <appender-ref ref="ERROR_LOG" />
-    </logger>
+<!--        <appender-ref ref="ERROR_LOG" />-->
+<!--    </logger>-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>

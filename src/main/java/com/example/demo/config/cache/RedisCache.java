@@ -1,6 +1,6 @@
 package com.example.demo.config.cache;
 
-import com.example.demo.config.ApplicationContextHolder;
+import com.example.demo.config.ioc.ApplicationContextHolder;
 import org.apache.ibatis.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

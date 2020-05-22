@@ -93,14 +93,14 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>1.4.0</version>
+            <version>1.5.3</version>
         </dependency>
 
         <!--  fastjson 依赖 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.46</version>
+            <version>1.2.67</version>
         </dependency>
 
         <!-- 视频相关依赖-->
