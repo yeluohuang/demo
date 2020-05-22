@@ -11,7 +11,7 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(DemoApplication.class);
-        application.addListeners(new ApplicationPidFileWriter());
+        application.addListeners(new ApplicationPidFileWriter());  // 打印应用的进程信息
         application.run(args);
     }
 }

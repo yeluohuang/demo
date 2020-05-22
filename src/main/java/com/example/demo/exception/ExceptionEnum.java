@@ -18,6 +18,9 @@ public enum ExceptionEnum implements BaseException {
     FILE_NOTFOUND("400","文件不存在"),
     FILE_SIZE_EXCEED("401","文件过大"),
 
+    // redis异常
+    REDIS("500","REDIS异常"),
+
     // 参数类
     EMPTY("999","请求参数为空或包含非法字符"),
 
