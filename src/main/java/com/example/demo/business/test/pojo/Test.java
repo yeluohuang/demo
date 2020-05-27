@@ -2,7 +2,8 @@ package com.example.demo.business.test.pojo;
 
 import java.util.Date;
 
-/** 测试类实体对象
+/**
+ * @description 测试类实体对象
  * @author zhushj3
  * @date 2020/04/28
  */

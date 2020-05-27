@@ -10,11 +10,12 @@ import org.springframework.http.converter.HttpMessageConverter;
 import java.nio.charset.Charset;
 
 /**
- * 定义一个新的messageConverter对requestBody和@responseBody的数据进行转换
+ * @description 定义一个新的messageConverter对requestBody和@responseBody的数据进行转换
  * 如果需要开启，则声明@Configuration
  * @author zhushj3
  * @date 2020/05/22
  */
+
 public class HttpMessageConverterWrap {
     // 引入fastjson解析json，不使用默认的jackson
     @Bean

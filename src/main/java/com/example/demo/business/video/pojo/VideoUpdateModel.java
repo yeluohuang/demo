@@ -3,7 +3,7 @@ package com.example.demo.business.video.pojo;
 import javax.validation.constraints.NotNull;
 
 /**
- * 视频信息更新模型
+ * @description 视频信息更新模型
  * @author zhushj3
  * @date 2020/05/07
  */

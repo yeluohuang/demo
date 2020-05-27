@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 视频接口
+ * @description 视频接口
  * @author zhushj3
  * @date 2020/05/07
  */

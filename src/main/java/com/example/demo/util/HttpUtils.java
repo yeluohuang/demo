@@ -3,11 +3,11 @@ package com.example.demo.util;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * http请求和返回相关的工具了
+ * @description http请求和返回相关的工具了
  * @author zhushj3
  * @date 2020/04/28
  */
-public class HttpUtil {
+public class HttpUtils {
 
     /**
      * 获取客户端Ip
@@ -15,13 +15,13 @@ public class HttpUtil {
      */
     public static String getClientIp(HttpServletRequest request){
         String ip = request.getHeader("x-forwarded-for");
-        if (ValidateUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+        if (ValidateUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
-        if (ValidateUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+        if (ValidateUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
-        if (ValidateUtil.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+        if (ValidateUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
         // 多个路由时，取第一个非unknown的ip

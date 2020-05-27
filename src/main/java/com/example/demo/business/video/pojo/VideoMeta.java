@@ -3,7 +3,7 @@ package com.example.demo.business.video.pojo;
 import java.io.OutputStream;
 
 /**
- * 视频元数据
+ * @description 视频元数据
  * @author zhushj3
  * @date 2020/05/07
  */

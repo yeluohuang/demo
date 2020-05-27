@@ -1,11 +1,11 @@
 package com.example.demo.util;
 
 /**
- * 验证数据工具类
+ * @description 验证数据工具类
  * @author zhushj3
  * @date 2020/04/28
  */
-public class ValidateUtil {
+public class ValidateUtils {
 
     /**
      * 判断是否是空白字符串:不为空，且trim以后长度>0

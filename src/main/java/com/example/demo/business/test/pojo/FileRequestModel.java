@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
- * 文件请求接口的请求参数类
+ * @description 文件请求接口的请求参数类
  * @author zhushj3
  * @date 2020/04/29
  */

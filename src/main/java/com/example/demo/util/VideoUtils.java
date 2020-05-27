@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
-/** 视频工具类
+/** @description 视频工具类
  * @author zhushj3
  * @date 2020/05/07
  */

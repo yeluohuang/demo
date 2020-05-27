@@ -1,7 +1,7 @@
 package com.example.demo.exception;
 
 /**
- * 自定义业务类异常
+ * @description 自定义业务类异常
  * @author zhushj3
  * @date 2020/04/29
  */

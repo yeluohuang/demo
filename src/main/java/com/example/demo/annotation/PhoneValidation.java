@@ -1,14 +1,14 @@
 package com.example.demo.annotation;
 
 import com.example.demo.annotation.declare.Phone;
-import com.example.demo.util.ValidateUtil;
+import com.example.demo.util.ValidateUtils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
 
 /**
- * 身份证号校验注解的实现类
+ * @description 身份证号校验注解的实现类
  * @author zhushj3
  * @date 2020/04/29
  */
@@ -28,7 +28,7 @@ public class PhoneValidation implements ConstraintValidator<Phone, String> {
         if(required) {
             return pattern.matcher(value).matches();
         }else {
-            if(ValidateUtil.isEmpty(value)) {
+            if(ValidateUtils.isEmpty(value)) {
                 return false;
             }else{
                 return pattern.matcher(value).matches();

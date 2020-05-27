@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 登录/登出接口
+ * @description 登录/登出接口
  * @author zhushj3
  * @date 2020/04/30
  */

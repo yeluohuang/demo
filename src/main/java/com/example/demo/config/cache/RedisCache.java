@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * redis的dao层，由于接入的mysql的二级缓存，所以需要失效cache接口；也可以直接使用redis进行缓存，对需要缓存的数据在service层进行mysql的更新操作
+ * @description redis的dao层，由于接入的mysql的二级缓存，所以需要失效cache接口；也可以直接使用redis进行缓存，对需要缓存的数据在service层进行mysql的更新操作
  * 使用方式：在mapper.xml里引入
  * <mapper namespace="com.example.demo.business.**.*Mapper">
  *     <cache type="com.example.demo.config.cache.RedisCache"/>

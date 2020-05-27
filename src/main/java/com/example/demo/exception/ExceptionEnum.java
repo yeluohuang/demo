@@ -1,7 +1,7 @@
 package com.example.demo.exception;
 
 /**
- * 自定义异常枚举类，罗列接口可能出现的异常信息
+ * @description 自定义异常枚举类，罗列接口可能出现的异常信息
  * @author zhushj3
  * @date 2020/04/29
  */

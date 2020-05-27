@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- * session的持久化类，可以存储在本地内存/redis/数据库等;默认存在内存中
+ * @description session的持久化类，可以存储在本地内存/redis/数据库等;默认存在内存中
  * @author zhushj3
  * @date 2020/04/30
  */

@@ -3,11 +3,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 
-@SpringBootApplication
+@SpringBootApplication // @Configuration+@EnableAutoConfiguration+@ComponentScan
 @MapperScan("com.example.demo.business.**.dao") // 扫描mapper文件夹下面的xml文件，将其与mapper下的接口关联
-@ServletComponentScan // 扫描component
 public class DemoApplication {
 
     public static void main(String[] args) {

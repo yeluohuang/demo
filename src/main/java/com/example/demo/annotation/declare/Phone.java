@@ -12,7 +12,7 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 手机号校验注解
+ * @description 手机号校验注解
  * @author zhushj3
  * @date 2020/04/29
  */

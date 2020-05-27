@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * 全局异常处理器:需要声明@ControllerAdvice
+ * @description 全局异常处理器:需要声明@ControllerAdvice
  * @author zhushj3
  * @date 2020/04/29
  */

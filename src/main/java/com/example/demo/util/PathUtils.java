@@ -3,11 +3,11 @@ package com.example.demo.util;
 import java.io.File;
 
 /**
- * 项目路径相关工具类
+ * @description 项目路径相关工具类
  * @author zhushj3
  * @date 2020/04/29
  */
-public class PathUtil {
+public class PathUtils {
     // 完整路径：/${root}/file/file /${root}/file/img   /${root}/file/temp
     private static final String FILE_PARENT="file";
     private static final String IMG_PATH="img";   // 图片存储目录

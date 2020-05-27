@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 文件业务接口
+ * @description 文件业务接口
  * @author zhushj3
  * @date 2020/04/29
  */

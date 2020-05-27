@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 /**
- * 数据库连接监控
+ * @description 数据库连接监控
  * @author zhushj3
  * @date 2020/04/29
  */
@@ -32,13 +32,14 @@ public class DruidConfig {
         servletRegistrationBean.addInitParameter("allow", "192.168.2.25,127.0.0.1");
         // IP黑名单(共同存在时，deny优先于allow)
         servletRegistrationBean.addInitParameter("deny", "192.168.1.100");
-        //控制台管理用户
+        // 控制台管理用户
         servletRegistrationBean.addInitParameter("loginUsername", "zhushj3");
         servletRegistrationBean.addInitParameter("loginPassword", "zhushj3");
-        //是否能够重置数据 禁用HTML页面上的“Reset All”功能
+        // 是否能够重置数据 禁用HTML页面上的“Reset All”功能
         servletRegistrationBean.addInitParameter("resetEnable", "false");
         return servletRegistrationBean;
     }
+
     // 过滤器
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {

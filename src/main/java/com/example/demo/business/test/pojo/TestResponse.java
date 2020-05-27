@@ -3,7 +3,7 @@ package com.example.demo.business.test.pojo;
 import com.example.demo.exception.BaseException;
 
 /**
- * 测试类返回体包装对象,用于封装接口返回的数据
+ * @description 测试类返回体包装对象,用于封装接口返回的数据
  * @author zhushj3
  * @date 2020/04/28
  */

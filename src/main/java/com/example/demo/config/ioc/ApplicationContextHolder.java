@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * springboot 实例化对象工具类，创建的对象将注入容器
+ * @description springboot 实例化对象工具类，创建的对象将注入容器
  * @author zhushj3
  * @date 2020/05/22
  */

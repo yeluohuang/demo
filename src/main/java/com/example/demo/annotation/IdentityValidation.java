@@ -1,11 +1,12 @@
 package com.example.demo.annotation;
 
 import com.example.demo.annotation.declare.Identity;
-import com.example.demo.util.ValidateUtil;
+import com.example.demo.util.ValidateUtils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
+
 
 public class IdentityValidation implements ConstraintValidator<Identity, String> {
     private boolean required = false;
@@ -20,7 +21,7 @@ public class IdentityValidation implements ConstraintValidator<Identity, String>
         if(required) {
             return pattern.matcher(value).matches();
         }else {
-            if(ValidateUtil.isEmpty(value)) {
+            if(ValidateUtils.isEmpty(value)) {
                 return false;
             }else{
                 return pattern.matcher(value).matches();

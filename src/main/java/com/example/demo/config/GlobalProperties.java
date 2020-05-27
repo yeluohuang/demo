@@ -5,9 +5,12 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
- * 全局配置信息（在配置文件之外的配置）:静态函数需要从配置文件读取的信息
+ * @description 全局配置信息（在配置文件之外的配置）:静态函数需要从配置文件读取的信息
+ * @author zhushj3
+ * @date 2020/05/22
  */
 @Component
 public class GlobalProperties {
@@ -20,5 +23,9 @@ public class GlobalProperties {
     @PostConstruct
     public void initConfig() {
         // 读取配置文件
+    }
+
+    @PreDestroy
+    public void destroy() {
     }
 }

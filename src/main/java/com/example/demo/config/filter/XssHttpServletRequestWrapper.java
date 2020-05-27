@@ -14,7 +14,9 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
 /**
- * 对request进行包装：对XSS攻击的请求进行过滤
+ * @description 对request进行包装：对XSS攻击的请求进行过滤
+ * @author zhushj3
+ * @date 2020/05/22
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 

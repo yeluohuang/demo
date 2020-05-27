@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 会话监听：监听会话的生命周期变化
+ * @description 会话监听：监听会话的生命周期变化
  * @author zhushj3
  * @date 2020/04/29
  */

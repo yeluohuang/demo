@@ -7,11 +7,11 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 /**
- * md5工具类
+ * @description md5工具类
  * @author zhushj3
  * @date 2020/04/30
  */
-public class MD5Util {
+public class MD5Utils {
     private final static String HEX_NUMS_STR = "0123456789ABCDEF";
     private final static Integer SALT_LENGTH = 12;     // SALT的长度
     /**

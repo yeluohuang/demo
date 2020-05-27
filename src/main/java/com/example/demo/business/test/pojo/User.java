@@ -3,7 +3,7 @@ package com.example.demo.business.test.pojo;
 import org.apache.shiro.session.Session;
 
 /**
- * 测试Shiro功能的User对象
+ * @description 测试Shiro功能的User对象
  * @author zhushj3
  * @date 2020/04/29
  */

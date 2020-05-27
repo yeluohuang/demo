@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Shiro权限管理—用户认证与权限认证的策略（可以理解为面试题）
+ * @description Shiro权限管理—用户认证与权限认证的策略（可以理解为面试题）
  * @author zhushj3
  * @date 2020/04/30
  */

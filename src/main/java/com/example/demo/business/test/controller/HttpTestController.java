@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.Enumeration;
 
 /**
- * 主要用于测试http网络通信协议
+ * @description 主要用于测试http网络通信协议
  * @author zhushj3
  * @date 2020/04/28
  */

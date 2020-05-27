@@ -7,8 +7,8 @@ import com.example.demo.business.video.pojo.VideoMeta;
 import com.example.demo.business.video.pojo.VideoQueryModel;
 import com.example.demo.business.video.pojo.VideoUpdateModel;
 import com.example.demo.business.video.service.VideoService;
-import com.example.demo.util.PathUtil;
-import com.example.demo.util.UUIDUtil;
+import com.example.demo.util.PathUtils;
+import com.example.demo.util.UUIDUtils;
 import com.example.demo.util.VideoUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ import java.io.*;
 import java.util.Date;
 import java.util.List;
 
-/**视频业务逻辑实现类
+/**@description 视频业务逻辑实现类
  * @author zhushj3
  * @date 2020/05/07
  */
@@ -39,14 +39,14 @@ public class VideoServiceImpl implements VideoService {
         // 保存文件至文件目录
         String fileName = fileService.uploadFile(file);
         // 解析并获取视频元数据信息、缩略图等
-        File localFile = new File(PathUtil.getFilePath()+File.separator+fileName);
+        File localFile = new File(PathUtils.getFilePath()+File.separator+fileName);
         VideoMeta  meta = VideoUtils.getVideoMeta(localFile,10);
         // 保存缩略图至本地
         ByteArrayOutputStream outputStream = (ByteArrayOutputStream) meta.getThumbnailImage();
-        String thumbName = UUIDUtil.getUUID()+".jpg";
-        String imgPath = PathUtil.getImgPath()+File.separator+thumbName;
+        String thumbName = UUIDUtils.getUUID()+".jpg";
+        String imgPath = PathUtils.getImgPath()+File.separator+thumbName;
         File temp = new File(imgPath);
-        if(!temp.exists()){
+        if (!temp.exists()){
             if(!temp.getParentFile().exists()){
                 temp.getParentFile().mkdirs();
             }
@@ -87,10 +87,10 @@ public class VideoServiceImpl implements VideoService {
         //从前端获取需要下载的文件ID
         String filename = temp[1];
         String filePath = "";
-        if(temp[0].equals("img")) {
-            filePath = PathUtil.getImgPath()+ File.separator+filename;
+        if (temp[0].equals("img")) {
+            filePath = PathUtils.getImgPath()+ File.separator+filename;
         } else {
-            filePath = PathUtil.getFilePath()+filePath+File.separator+filename;
+            filePath = PathUtils.getFilePath()+filePath+File.separator+filename;
         }
         logger.info("当前请求的资源地址为："+filePath);
         // 采用RandAccessFile类来读取文件内指定位置的内容，从而实现每次请求一部分数据的功能
@@ -99,7 +99,7 @@ public class VideoServiceImpl implements VideoService {
         long contentLength = randomFile.length();
         String range = request.getHeader("Range");
         int start = 0, end = 0;
-        if(range != null && range.startsWith("bytes=")){
+        if (range != null && range.startsWith("bytes=")){
             String[] values = range.split("=")[1].split("-");
             start = Integer.parseInt(values[0]);
             if(values.length > 1){
@@ -107,14 +107,14 @@ public class VideoServiceImpl implements VideoService {
             }
         }
         int requestSize = 0;
-        if(end != 0 && end > start){
+        if (end != 0 && end > start){
             requestSize = end - start + 1;
         } else {
             requestSize = Integer.MAX_VALUE;
         }
 
         byte[] buffer = new byte[4096];
-        if(temp[0].equals("img")){
+        if (temp[0].equals("img")){
             response.setContentType("image/jpeg;charset=utf-8");
         } else {
             response.setContentType("audio/mp4;charset=utf-8");
@@ -123,14 +123,14 @@ public class VideoServiceImpl implements VideoService {
             response.setHeader("Last-Modified", new Date().toString());
         }
         //第一次请求只返回content length来让客户端请求多次实际数据
-        if(range == null){
+        if (range == null){
             response.setHeader("Content-length", contentLength + "");
-        }else{
+        } else{
             //以后的多次以断点续传的方式来返回视频数据
             response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);//206
             long requestStart = 0, requestEnd = 0;
             String[] ranges = range.split("=");
-            if(ranges.length > 1){
+            if (ranges.length > 1){
                 String[] rangeDatas = ranges[1].split("-");
                 requestStart = Integer.parseInt(rangeDatas[0]);
                 if(rangeDatas.length > 1){
@@ -138,11 +138,11 @@ public class VideoServiceImpl implements VideoService {
                 }
             }
             long length = 0;
-            if(requestEnd > 0){
+            if (requestEnd > 0){
                 length = requestEnd - requestStart + 1;
                 response.setHeader("Content-length", "" + length);
                 response.setHeader("Content-Range", "bytes " + requestStart + "-" + requestEnd + "/" + contentLength);
-            }else{
+            } else{
                 length = contentLength - requestStart;
                 response.setHeader("Content-length", "" + length);
                 response.setHeader("Content-Range", "bytes "+ requestStart + "-" + (contentLength - 1) + "/" + contentLength);
@@ -151,13 +151,13 @@ public class VideoServiceImpl implements VideoService {
         ServletOutputStream out = response.getOutputStream();
         int needSize = requestSize;
         randomFile.seek(start);
-        while(needSize > 0){
+        while (needSize > 0){
             int len = randomFile.read(buffer);
-            if(needSize < buffer.length){
+            if (needSize < buffer.length){
                 out.write(buffer, 0, needSize);
             } else {
                 out.write(buffer, 0, len);
-                if(len < buffer.length){
+                if (len < buffer.length){
                     break;
                 }
             }
@@ -179,10 +179,6 @@ public class VideoServiceImpl implements VideoService {
         video.setTitle(model.getTitle());
         video.setDes(model.getDes());
         video.setTags(model.getTags());
-        if(videoMapper.updateByPrimaryKeySelective(video) >0) {
-            return true;
-        } else {
-            return false;
-        }
+        return videoMapper.updateByPrimaryKeySelective(video) > 0;
     }
 }

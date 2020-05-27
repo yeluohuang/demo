@@ -3,7 +3,7 @@ package com.example.demo.business.video.pojo;
 import javax.validation.constraints.NotNull;
 
 /**
- * 根据条件分页查询视频信息
+ * @description 根据条件分页查询视频信息
  * @author zhushj3
  * @date 2020/05/07
  */

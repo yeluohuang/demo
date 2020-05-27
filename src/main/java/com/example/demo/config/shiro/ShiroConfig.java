@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Shiro的配置信息：包括地址过滤、UserRealm注入等操作
+ * @description Shiro的配置信息：包括地址过滤、UserRealm注入等操作
  * @author zhushj3
  * @date 2020/04/29
  */

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**视频业务逻辑接口
+/**@description 视频业务逻辑接口
  * @author zhushj3
  * @date 2020/05/07
  */

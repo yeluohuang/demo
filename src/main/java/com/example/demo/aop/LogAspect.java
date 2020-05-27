@@ -13,7 +13,8 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
-/** 面向切面的配置：记录系统日志，存储于数据库中
+/**
+ * @description 面向切面的配置：记录系统日志，存储于数据库中
  * @author zhushj3
  * @date 2020/04/28
  */
@@ -23,7 +24,7 @@ public class LogAspect {
     /**
      * slf4j日志
      */
-    private final static Logger logger = LoggerFactory.getLogger(LogAspect.class);
+    private final static Logger logger = LoggerFactory.getLogger("test");
 
     /**
      * Pointcut 切入点,即需要执行切面编程的类或者函数

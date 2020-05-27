@@ -3,6 +3,11 @@ package com.example.demo.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @description 日期类
+ * @author zhushj3
+ * @date 2020/05/22
+ */
 public class DateUtils {
     private static String format = "yyyy-MM-dd HH:mm:ss";
 

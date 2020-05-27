@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * 配置swagger接口文档
+ * @description 配置swagger接口文档
  * @author zhushj3
  * @date 2020/04/29
  */

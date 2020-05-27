@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 过滤器:参考官网查看不同过滤器的作用，此处为了对请求信息做一个增强处理
+ * @description 过滤器:参考官网查看不同过滤器的作用，此处为了对请求信息做一个增强处理
  * 注意：login接口不会进入该过滤器，而是直接进入接口进行逻辑处理
  *
  * @author zhushj3
@@ -36,7 +36,11 @@ public class UserFilter extends org.apache.shiro.web.filter.authc.UserFilter {
         return isAccess;
     }
 
-    // 跨域请求
+    /**
+     * 跨域请求设置：也可以采用SpringBoot 官网推荐的基于@Configuration的跨域配置
+     * @param request
+     * @param response
+     */
     private void setHeader(HttpServletRequest request,HttpServletResponse response){
             UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
             CorsConfiguration config = new CorsConfiguration();
