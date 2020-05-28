@@ -1,10 +1,12 @@
 package com.example.demo.aop;
 
+import com.example.demo.annotation.declare.Log;
 import com.example.demo.exception.BaseException;
 import com.example.demo.exception.TestException;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -25,8 +29,7 @@ public class WebLogAspect {
     /**
      * slf4j日志
      */
-    private final static Logger logger = LoggerFactory.getLogger("test");
-    private final static Logger logger1 = LoggerFactory.getLogger(WebLogAspect.class);
+    private final static Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
 
     /**
      * Pointcut 切入点,即需要执行切面编程的类或者函数
@@ -54,7 +57,7 @@ public class WebLogAspect {
         } finally {
             long end = System.currentTimeMillis();
             long duration = end -start;
-            logger1.info("耗时："+String.valueOf(duration)+"ms");
+            logger.info("耗时："+String.valueOf(duration)+"ms");
         }
         return o;
     }
@@ -68,9 +71,9 @@ public class WebLogAspect {
         assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
         // 打印请求信息
-        logger1.info("requestURL : " + request.getMethod()+ "?"+request.getRequestURL().toString());
-        logger1.info("clientIP : " + request.getRemoteAddr());
-        logger1.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        logger.info("requestURL : " + request.getMethod()+ "?"+request.getRequestURL().toString());
+        logger.info("clientIP : " + request.getRemoteAddr());
+        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         logger.info("请求参数 : " + Arrays.toString(joinPoint.getArgs())); // 直接取的方法内的参数，非传递过来的数据
 
     }

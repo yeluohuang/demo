@@ -1,19 +1,16 @@
 package com.example.demo.aop;
 
-
-
-import com.example.demo.annotation.declare.Log;
+import com.example.demo.util.LogUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /**
+ * 执行顺序： around-before-method-around-after/afterThrowing
  * @description 面向切面的配置：记录系统日志，存储于数据库中
  * @author zhushj3
  * @date 2020/04/28
@@ -34,29 +31,30 @@ public class LogAspect {
     public void webLog(){}
 
     /**
-     * 环绕通知：在执行函数的过程中进行操作:此处可以进行全局异常处理，或者交由全局异常处理器处理
+     * 环绕通知：在连接点前进行操作:此处可以进行全局异常处理，或者交由全局异常处理器处理
+     * 类似于过滤器
      */
     @Around(value = "webLog()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         // 获取切点的对象信息
-        MethodSignature signature = (MethodSignature) pjp.getSignature();
-        Method method = signature.getMethod();
-        Log log = method.getAnnotation(Log.class);
-        String msg = log.value();
-        // 测试
-        logger.info("测试Log注解"+msg);
+//        MethodSignature signature = (MethodSignature) pjp.getSignature();
+//        Method method = signature.getMethod();
+//        Log log = method.getAnnotation(Log.class);
+//        String msg = log.value();
+       // logger.info("测试Log注解"+msg);
         return pjp.proceed();
     }
 
     /**
-     * 方法执行前
+     * 函数执行前，around之后
      */
     @Before(value = "webLog()")
     public void before(JoinPoint joinPoint){
+        LogUtil.addValue(Arrays.toString(joinPoint.getArgs()));
     }
 
     /**
-     * 方法执行结束，不管是抛出异常或者正常退出都会执行
+     * 连接点退出（结束或者异常退出）
      */
     @After(value = "webLog()")
     public void after(JoinPoint joinPoint){
@@ -67,6 +65,9 @@ public class LogAspect {
      */
     @AfterReturning(returning = "ret", pointcut = "webLog()")
     public void doAfterReturning(Object ret){
+        LogUtil.addValue(ret.toString());
+        logger.info(LogUtil.getValue());
+        LogUtil.clearValue();
     }
 
     /**
@@ -74,5 +75,6 @@ public class LogAspect {
      */
     @AfterThrowing(value = "webLog()")
     public void throwss(JoinPoint joinPoint){
+        LogUtil.clearValue();
     }
 }
