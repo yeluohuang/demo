@@ -1,5 +1,6 @@
 package com.example.demo.business.system.controller;
 
+import antlr.collections.Stack;
 import com.example.demo.annotation.declare.Log;
 import com.example.demo.business.system.service.SystemService;
 import com.example.demo.business.test.pojo.TestResponse;
@@ -24,6 +25,10 @@ public class SystemInfoController {
     @Log
     @PostMapping("getsysteminfos")
     public TestResponse getSystemInfos(){
+        StackTraceElement[] temp = Thread.currentThread().getStackTrace();
+        for(StackTraceElement element:temp){
+            System.out.println(element.getMethodName());
+        }
         LogUtil.addValue("关键参数"+String.valueOf(Math.random()));
         return TestResponse.ok("获取系统参数成功",systemService.listSystemInfos());
     }
